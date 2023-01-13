@@ -86,3 +86,6 @@ def only_start(date):
 def start_end(start,end):
     start_end_temp_data = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).filter(Measurement.date >= start).filter(Measurement.date <= end).all()
     return jsonify(start_end_temp_data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
